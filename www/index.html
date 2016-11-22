@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one
+    or more contributor license agreements.  See the NOTICE file
+    distributed with this work for additional information
+    regarding copyright ownership.  The ASF licenses this file
+    to you under the Apache License, Version 2.0 (the
+    "License"); you may not use this file except in compliance
+    with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing,
+    software distributed under the License is distributed on an
+    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+     KIND, either express or implied.  See the License for the
+    specific language governing permissions and limitations
+    under the License.
+-->
+<html>
+    <head>
+        <!--
+        Customize this policy to fit your own app's needs. For more guidance, see:
+            https://github.com/apache/cordova-plugin-whitelist/blob/master/README.md#content-security-policy
+        Some notes:
+            * gap: is required only on iOS (when using UIWebView) and is needed for JS->native communication
+            * https://ssl.gstatic.com is required only on Android and is needed for TalkBack to function properly
+            * Disables use of inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
+                * Enable inline JS: add 'unsafe-inline' to default-src
+        -->
+        <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *">
+        <meta name="format-detection" content="telephone=no">
+        <meta name="msapplication-tap-highlight" content="no">
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+
+        <link rel="stylesheet" type="text/css" href="css/index.css">
+
+        <title>Neura Cordova Sample</title>
+    </head>
+    <body>
+        <div style="justify-content: center">
+            <img src="img/neura_sdk_demo_logo.png" class="logo" />
+            <h2>Cordova Plugin</h2>
+        </div>
+        <h3>Authentication:</h3>
+        <div class="container">
+            <button type="button" id="authenticate">Authenticate</button>
+            <button type="button" id="forgetMe">Forget Me</button>
+        </div>
+        <h3>Subscriptions:</h3>
+        <div class='container'>
+            <button type="button" id="getSubscriptions">Get Subscriptions</button>
+            <button type="button" id="subscribeLeftHome">Subscribe Left Home</button>
+            <button type="button" id="subscribeLeftWork">Subscribe Left Work</button>
+            <button type="button" id="unsubscribeLeftHome">Unsubscribe Left Home</button>
+            <button type="button" id="unsubscribeLeftWork">Unsubscribe Left Work</button>
+            <button type="button" style='width: 90%' id="shouldSubscribeUserPhone">Should Subscribe User Phone?</button>
+            <button type="button" style='width: 90%' id="shouldSubscribeLeftWork">Should Subscribe Left Work?</button>
+        </div>
+        <h3>Permissions:</h3>
+        <div class='container'>
+                <button type="button" id="getAppPermissions">Get App Permissions</button>
+                <button type="button" id="getPermissionStatus">Get Permissions Status</button>
+        </div>
+        <h3>Utilities:</h3>
+        <div class='container'>
+            <button type="button" id="enableLogFile">Enable Log File</button>
+            <button type="button" id="enableAutomaticallySyncLogs">Enable AutoSync Logs</button>
+            <button type="button" style='width: 90%' id="enableNeuraHandingStateAlertMessages">Enable Neura Handing State Alert Messages</button>
+            <button type="button" id="getSdkVersion">Get SDK Version</button>
+            <button type="button" id="simulateAnEvent">Simulate Event</button>
+        </div>
+        <h3>User:</h3>
+        <div class='container'>
+            <button type="button" id="getUserSituation">Get User Situation</button>
+            <button type="button" id="getUserDetails">Get User Details</button>
+            <button type="button" id="getUserPhone">Get User Phone</button>
+        </div>
+        <h3>Devices and capabilities:</h3>
+        <div class='container'>
+            <button type="button" id="isMissingDataForEvent">Is Missing Data For Event</button>
+            <button type="button" id="getMissingDataForEvent">Get Missing Data For Event</button>
+            <button type="button" id="getKnownDevices">Get Known Devices</button>
+            <button type="button" id="getKnownCapabilities">Get Known Capabilities</button>
+            <button type="button" id="hasDeviceWithCapability">Has Device With Capability</button>
+            <button type="button" id="addDevice">Add Device</button>
+            <button type="button" style='width: 90%' id="addDeviceByCapabilities">Add Device by capabilities</button>
+            <button type="button" id="addDeviceByName">Add Device By Name</button>
+        </div>
+
+        <script type="text/javascript" src="cordova.js"></script>
+        <script type="text/javascript" src="js/index.js"></script>
+    </body>
+</html>
