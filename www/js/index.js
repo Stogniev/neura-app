@@ -90,12 +90,8 @@ var app = {
             output('Neura init failed [' + errorCode + ']');
         }
 
-        var appUid = "c532adf109730db39b6600b8574035f316a62be5e223dd5524fc17bb96f88c27";
-        var appSecret = "1da1870dad66f1028fb68a7bba70164546852c95b7e81d3bc525fa6b40d541b1";
+        neura.init("c532adf109730db39b6600b8574035f316a62be5e223dd5524fc17bb96f88c27", "1da1870dad66f1028fb68a7bba70164546852c95b7e81d3bc525fa6b40d541b1", success, failure);
 
-    //neura.init({"appUid": appUid, "appSecret": appSecret,"ios": {"automaticPush": true,"features": ["customErrorNotification","disableSdkLogging"]}});
-
-neura.init({"appUid": appUid, "appSecret": appSecret,"ios": {"automaticPush": true}});
 
     },
     // Update DOM on a Received Event
@@ -131,15 +127,7 @@ var authenticate = function() {
     // (replace APP_UID with your app UID):
     // https://dev.theneura.com/console/edit/APP_UID
     // Go to "Permissions", scroll all the way down and paste the list of permissions
-    
-    // Call for authentication based on permission list only - can be implemented as a special case of the 'dictionaries' based call.
-    
-    var phoneNumber = document.getElementById("authenticate_phone_number").value;
-
-    // Call for authentication based on various parameters like 'permissions', 'phone'
-    neura.authenticate({"permissions" : ["userLeftWork", "userLeftHome", "userPhoneNumber", "userDetails", "userSituation"], "phone" : phoneNumber}, success, failure);
-
-    
+    neura.authenticate(["userLeftWork", "userLeftHome", "userPhoneNumber", "userDetails", "userSituation"], success, failure);
 }
 
 var registerNeuraEvents = function() {
@@ -163,7 +151,7 @@ var forgetMe = function() {
         output('Neura logout failed [' + errorCode + ']');
     }
 
-    neura.forgetMe(false, success, failure);
+    neura.forgetMe(true, success, failure);
 }
 
 var getSubscriptions = function() {
@@ -179,11 +167,11 @@ var getSubscriptions = function() {
 }
 
 var subscribeLeftHome = function() {
-    subscribeToEvent("userLeftHome", "userLeftHome_event_id", true);
+    subscribeToEvent("userLeftHome", "userLeftHome", true);
 }
 
 var subscribeLeftWork = function() {
-    subscribeToEvent("userLeftWork", "userLeftWork_event_id", true);
+    subscribeToEvent("userLeftWork", "userLeftWork", true);
 }
 
 var subscribeToEvent = function(eventName, eventIdentifier, neuraSendEventViaPush) {
@@ -199,11 +187,11 @@ var subscribeToEvent = function(eventName, eventIdentifier, neuraSendEventViaPus
 }
 
 var unsubscribeLeftHome = function() {
-    removeSubscription("userLeftHome", "userLeftHome_event_id", true);
+    removeSubscription("userLeftHome", "userLeftHome", true);
 }
 
 var unsubscribeLeftWork = function() {
-    removeSubscription("userLeftWork", "userLeftWork_event_id", true);
+    removeSubscription("userLeftWork", "userLeftWork", true);
 }
 
 var removeSubscription = function(eventName, eventIdentifier, neuraSendEventViaPush) {
@@ -403,10 +391,7 @@ var addDeviceByCapabilities = function() {
         output('Neura addDeviceByCapabilities failed [' + errorCode + ']');
     }
 
-    // Android
-    //neura.addDeviceByCapabilities(["sleepQuality", "caloriesBurned"], success, failure);
-    // iOS
-    neura.addDeviceByCapabilities(["caloriesBurned"], success, failure);
+    neura.addDeviceByCapabilities(["sleepQuality", "caloriesBurned"], success, failure);
 }
 
 var addDeviceByName = function() {
@@ -418,10 +403,7 @@ var addDeviceByName = function() {
         output('Neura addDeviceByName failed [' + errorCode + ']');
     }
 
-    // Android - case insensitive
-    //neura.addDeviceByName("jawbone up", success, failure);
-    // iOS - case sensitive
-    neura.addDeviceByName("Jawbone UP", success, failure);
+    neura.addDeviceByName("jawbone up", success, failure);
 }
 
 var getUserDetails = function() {
