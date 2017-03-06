@@ -127,16 +127,10 @@ var authenticate = function() {
         output('Neura authenticate failed [' + errorCode + ']');
     }
 
-    // TODO: Update the permissions list according to the permissions your app requested on Neura devsite at this link
-    // (replace APP_UID with your app UID):
-    // https://dev.theneura.com/console/edit/APP_UID
-    // Go to "Permissions", scroll all the way down and paste the list of permissions
-    // Call for authentication based on permission list only - can be implemented as a special case of the 'dictionaries' based call.
-    
     var phoneNumber = document.getElementById("authenticate_phone_number").value;
 
     // Call for authentication based on various parameters like 'permissions', 'phone'
-    neura.authenticate({"permissions" : ["userLeftWork", "userLeftHome", "userPhoneNumber", "userDetails", "userSituation"], "phone" : phoneNumber}, success, failure);
+    neura.authenticate({"phone" : phoneNumber}, success, failure);
 }
 
 var registerNeuraEvents = function() {
