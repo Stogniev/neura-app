@@ -1,0 +1,27 @@
+{
+  "name": "cordova-neura-plugin",
+  "version": "0.1.0",
+  "description": "Cordova Neura Plugin",
+  "cordova": {
+    "id": "cordova-plugin-neura",
+    "platforms": [
+      "android",
+      "ios"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NeuraLabs/cordova-neura-plugin.git"
+  },
+  "keywords": [
+    "ecosystem:cordova",
+    "cordova-android",
+    "cordova-ios"
+  ],
+  "author": "Neura",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/NeuraLabs/cordova-neura-plugin/issues"
+  },
+  "homepage": "https://github.com/NeuraLabs/cordova-neura-plugin#readme"
+}

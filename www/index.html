@@ -33,72 +33,71 @@
         <meta name="msapplication-tap-highlight" content="no">
         <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
 
-        <link rel="stylesheet" type="text/css" href="css/index.css">
-
         <title>Neura Cordova Sample</title>
     </head>
     <body>
         <div>
-            <div id="deviceready" class="blink" style="display: none">
+            <h1>Neura Sample</h1>
+            <div id="deviceready" class="blink">
                 <p class="event listening">Connecting to Device</p>
                 <p class="event received">Device is Ready</p>
             </div>
-            <div style="justify-content: center">
-                <img src="img/neura_sdk_demo_logo.png" class="logo" />
-                <h2>Cordova Plugin</h2>
-            </div>
-            <h3>Authentication:</h3>
-            <div class="container">
-                <div>
-                    Phone Number:
-                    <input type="text" id="authenticate_phone_number">
-                </div>
-                <button type="button" id="authenticate">Authenticate</button>
-                <button type="button" id="forgetMe">Forget Me</button>
-            </div>
-            <h3>Subscriptions:</h3>
-            <div class="container">
-                <button type="button" id="getSubscriptions">Get Subscriptions</button>
-                <button type="button" id="subscribeLeftHome">Subscribe Left Home</button>
-                <button type="button" id="subscribeLeftWork">Subscribe Left Work</button>
-                <button type="button" id="unsubscribeLeftHome">Unsubscribe Left Home</button>
-                <button type="button" id="unsubscribeLeftWork">Unsubscribe Left Work</button>
-                <button type="button" style="width: 90%" id="shouldSubscribeUserPhone">Should Subscribe User Phone?</button>
-                <button type="button" style="width: 90%" id="shouldSubscribeLeftWork">Should Subscribe Left Work?</button>
-            </div>
-            <h3>Permissions:</h3>
-            <div class="container">
-                    <button type="button" id="getAppPermissions">Get App Permissions</button>
-                    <button type="button" id="getPermissionStatus">Get Permissions Status</button>
-            </div>
-            <h3>Utilities:</h3>
-            <div class="container">
-                <button type="button" id="enableLogFile">Enable Log File</button>
-                <button type="button" id="enableAutomaticallySyncLogs">Enable AutoSync Logs</button>
-                <button type="button" style="width: 90%" id="enableNeuraHandingStateAlertMessages">Enable Neura Handing State Alert Messages</button>
-                <button type="button" id="getSdkVersion">Get SDK Version</button>
-                <button type="button" id="simulateAnEvent">Simulate Event</button>
-            </div>
-            <h3>User:</h3>
-            <div class="container">
-                <button type="button" id="getUserSituation">Get User Situation</button>
-                <button type="button" id="getUserDetails">Get User Details</button>
-                <button type="button" id="getUserPhone">Get User Phone</button>
-            </div>
-            <h3>Devices and capabilities:</h3>
-            <div class="container">
-                <button type="button" id="isMissingDataForEvent">Is Missing Data For Event</button>
-                <button type="button" id="getMissingDataForEvent">Get Missing Data For Event</button>
-                <button type="button" id="getKnownDevices">Get Known Devices</button>
-                <button type="button" id="getKnownCapabilities">Get Known Capabilities</button>
-                <button type="button" id="hasDeviceWithCapability">Has Device With Capability</button>
-                <button type="button" id="addDevice">Add Device</button>
-                <button type="button" style="width: 90%" id="addDeviceByCapabilities">Add Device by capabilities</button>
-                <button type="button" id="addDeviceByName">Add Device By Name</button>
-            </div>
+        </div>
+        <div>
+            <p>
+                <input type="button" id="authenticate" value="Authenticate" />
+                <input type="button" id="anonymousAuthenticate" value="anonymusAuthenticate" />
+                <input type="button" id="forgetMe" value="Forget Me" />
+            </p>
+            <p>
+                <input type="button" id="getSubscriptions" value="Get Subscriptions" />
+            </p>
+            <p>
+                <input type="button" id="subscribeLeftHome" value="Subscribe Left Home" />
+                <input type="button" id="subscribeLeftWork" value="Subscribe Left Work" />
+            </p>
+            <p>
+                <input type="button" id="unsubscribeLeftHome" value="Unsubscribe Left Home" />
+                <input type="button" id="unsubscribeLeftWork" value="Unsubscribe Left Work" />
+            </p>
+            <p>
+                <input type="button" id="shouldSubscribeUserPhone" value="Should Subscribe User Phone?" />
+                <input type="button" id="shouldSubscribeLeftWork" value="Should Subscribe Left Work?" />
+            </p>
+            <p>
+                <input type="button" id="getAppPermissions" value="Get App Permissions" />
+                <input type="button" id="getPermissionStatus" value="Get Permissions Status" />
+            </p>
+            <p>
+                <input type="button" id="enableLogFile" value="Enable Log File" />
+                <input type="button" id="enableNeuraHandingStateAlertMessages" value="Enable Neura Handing State Alert Messages" />
+                <input type="button" id="getSdkVersion" value="Get SDK Version" />
+            </p>
+            <p>
+                <input type="button" id="isMissingDataForEvent" value="Is Missing Data For Event" />
+                <input type="button" id="getMissingDataForEvent" value="Get Missing Data For Event" />
+            </p>
+            <p>
+                <input type="button" id="getKnownDevices" value="Get Known Devices" />
+            </p>
+            <p>
+                <input type="button" id="getKnownCapabilities" value="Get Known Capabilities" />
+                <input type="button" id="hasDeviceWithCapability" value="Has Device With Capability" />
+                <input type="button" id="addDevice" value="Add Device" />
+                <input type="button" id="addDeviceByCapabilities" value="Add Device by capabilities" />
+                <input type="button" id="addDeviceByName" value="Add Device By Name" />
+            </p>
+            <p>
+                <input type="button" id="getUserDetails" value="Get User Details" />
+                <input type="button" id="getUserPhone" value="Get User Phone" />
+                <input type="button" id="getUserSituation" value="Get User Situation" />
+            </p><p>
+                <input type="button" id="simulateAnEvent" value="Simulate Event" />
+            </p>
         </div>
 
         <script type="text/javascript" src="cordova.js"></script>
         <script type="text/javascript" src="js/index.js"></script>
     </body>
 </html>
+
