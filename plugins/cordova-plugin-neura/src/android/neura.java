@@ -36,6 +36,7 @@ import com.neura.sdk.object.AppSubscription;
 import com.neura.sdk.object.AuthenticationRequest;
 import com.neura.sdk.object.Permission;
 import com.neura.sdk.service.GetSubscriptionsCallbacks;
+import com.neura.sdk.service.SimulateEventCallBack;
 import com.neura.sdk.service.SubscriptionRequestCallbacks;
 import com.neura.standalonesdk.events.NeuraPushCommandFactory;
 import com.neura.standalonesdk.service.NeuraApiClient;
@@ -148,8 +149,8 @@ public class neura extends CordovaPlugin {
             } else if (action.equals("getUserSituation")) {
                 this.getUserSituation(args, callbackContext);
                 return true;
-            } else if (action.equals("simulateAnEvent")) {
-                this.simulateAnEvent(args, callbackContext);
+            } else if (action.equals("simulateUserLeftHome")) {
+                this.simulateUserLeftHome(args, callbackContext);
                 return true;
             } else if (action.equals("isLoggedIn")) {
                 this.isLoggedIn(args, callbackContext);
@@ -746,10 +747,18 @@ public class neura extends CordovaPlugin {
         }, timestamp);
     }
     
-    private void simulateAnEvent(@SuppressWarnings("UnusedParameters") JSONArray args, CallbackContext callbackContext) {
-        if (!mNeuraApiClient.simulateAnEvent()) {
-            callbackContext.error(ERROR_CODE_UNKNOWN_ERROR);
-        }
+    private void simulateUserLeftHome(@SuppressWarnings("UnusedParameters") JSONArray args, final CallbackContext callbackContext) {
+        mNeuraApiClient.simulateAnEvent("userLeftHome", new SimulateEventCallBack() {
+            @Override
+            public void onSuccess(String s) {
+                callbackContext.success();
+            }
+
+            @Override
+            public void onFailure(String s, String s1) {
+                callbackContext.error(ERROR_CODE_INVALID_ARGS);
+            }
+        });
     }
     
     private void isLoggedIn(@SuppressWarnings("UnusedParameters") JSONArray args, CallbackContext callbackContext) {

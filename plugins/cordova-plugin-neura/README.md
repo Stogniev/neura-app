@@ -28,7 +28,7 @@ To run the sample app please follow these steps:
 Due to a fact the cordova-neura-plugin is based on NeuraSDK.framework, and the framework is distributed separately from the plugin, please perform following steps to set up the environment correctly.
 
 1. Download <a href="https://github.com/NeuraLabs/cordova-neura-plugin.git">Neura Cordova Plugin</a>
-2. Download <a href="https://dev.theneura.com/docs/guide/ios/setup">Neura SDK framework</a> and unzip the contents.
+2. Download <a href="https://cdn.theneura.com/files/product/ios/sdk/NeuraStandaloneSDKPackage.zip">Neura SDK framework</a> and unzip the contents.
 3. Copy 'NeuraSDK.framework' from the 'Release-universal' folder to previously downloaded 'path/to/cordova-neura-plugin/' folder.
 4. Download <a href="https://github.com/NeuraLabs/NeuraSampleCordova.git">NeuraSampleCordova application</a>.
 5. cd to application folder
@@ -40,39 +40,32 @@ Due to a fact the cordova-neura-plugin is based on NeuraSDK.framework, and the f
 	'cordova plugin add /path/to/cordova-neura-plugin/'
 9. Build cordova project (--verbose can be omitted here): 
  	'cordova build ios --verbose'
-10. Change Sample app project's Info.plist (NeuraSampleCordova-Info.plist). 
-	This can be done by altering the appropriate plist file or via xCode 'Info' tab of the 'NeuraSampleCordova' target.
-	
-	I. Add Privacy related items:
-	  a. Privacy - Motion Usage Description
-	  b. Privacy - Bluetooth Peripheral Usage Description
-	  c. Privacy - Location Always Usage Description
+10. Open xcode project 'path/to/NeuraSampleCordova/platforms/ios/NeuraSampleCordova.xcworkspace'
+11. Select appropriate signing team.
+12. If you plan on using Push Notification functionality (including NeuraSDK automatic Push Notification functionality), go to the 'Capabilities' tab of the 'NeuraSampleCordova' target and turn on 'Push Notification' capability.
 
-		In plist format:
-	    <key>NSBluetoothPeripheralUsageDescription</key>
-	    <string>This enables more accurate detection of activity and significant places.</string>
-	    <key>NSLocationAlwaysUsageDescription</key>
-	    <string>Location data is required to to provide a better experience</string>
-	    <key>NSMotionUsageDescription</key>
-	    <string>Motion data is required to provide a better experience</string>
+## Using the plugin
 
-	II. Add background modes:
-	  a. "fetch"
-	  b. "location"
-	  c. "remote-notification"
-	  d. "bluetooth-central"
+After device is ready you must defined the main variable:
+```javascript
+var neura = window.cordova.plugins.neura;
+```
+If you using Typescript
+```javascript
+const neura = window['cordova'].plugins.neura;
+```
 
-		In plist format:
-	   	<key>UIBackgroundModes</key>
-	   	<array>
-      	    <string>fetch</string>
-      	    <string>location</string>
-      	    <string>remote-notification</string>
-      	    <string>bluetooth-central</string>
-    	</array>
+:thumbsup: *After this you may use all method in your code.*
 
+## Methods
 
-11. Open xcode project 'path/to/NeuraSampleCordova/platforms/ios/NeuraSampleCordova.xcworkspace'
-12. Select appropriate signing team.
-13. If you plan on using Push Notification functionality (including NeuraSDK automatic Push Notification functionality), go to the 'Capabilities' tab of the 'NeuraSampleCordova' target and turn on 'Push Notification' capability.
+```javascript
+neura.init(appUid, appSecret, success, error);
+neura.authenticate(permissions, phone, success, error);
+```
+> permissions - array of string ["userLeftWork", "userLeftHome", "userPhoneNumber"]
+> phone - phone number or empty string
 
+```javascript
+neura.subscribeToEvent(eventName, webHookId, neuraSendEventViaPush, success, failure);
+```

@@ -73,8 +73,8 @@ module.exports = {
     getUserSituation : function(timestamp, success, error) {
         exec(success, error, "neura", "getUserSituation", [timestamp]);
     },
-    simulateAnEvent : function(success, error) {
-        exec(success, error, "neura", "simulateAnEvent", []);
+    simulateUserLeftHome : function(success, error) {
+        exec(success, error, "neura", "simulateUserLeftHome", []);
     },
     isLoggedIn : function(success, error) {
         exec(success, error, "neura", "isLoggedIn", []);

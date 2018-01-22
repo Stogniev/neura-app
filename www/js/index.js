@@ -63,12 +63,17 @@ onDeviceReady: function() {
     var anonymousAuthenticate = function(deviceToken){
         var success = function() {
                     output('Neura authenticate success');
+                    userAuthenticated();
                 }
 
                 var failure = function(errorCode) {
                     output('Neura authenticate failed [' + errorCode + ']');
                 }
         neura.anonymousAuthenticate(deviceToken, success, failure);
+    }
+
+    var userAuthenticated = function () {
+
     }
 
     var forgetMe = function() {
@@ -418,7 +423,7 @@ onDeviceReady: function() {
         output('Neura init failed [' + errorCode + ']');
     }
 
-    neura.init("c532adf109730db39b6600b8574035f316a62be5e223dd5524fc17bb96f88c27", "1da1870dad66f1028fb68a7bba70164546852c95b7e81d3bc525fa6b40d541b1", success, failure);
+    neura.init("3e2430c104b0d71fce32b8a9ad1613974c72f009c4a9de27cb16eb4a8d6534d4", "85c950644c32759f0087d5078e62f8ed21c9386ed97848f73014e619069842cb", success, failure);
 
 
 },
