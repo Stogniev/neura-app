@@ -25,4 +25,5 @@
         <resource-file src="GoogleService-Info.plist" />
     </platform>
     <plugin name="cordova-plugin-neura" spec="../cordova-neura-plugin" />
+    <engine name="android" spec="~7.0.0" />
 </widget>

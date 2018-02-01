@@ -1,8 +1,8 @@
 var exec = require('cordova/exec');
 
 module.exports = {
-    init : function(appUid, appSecret, success, error) {
-        exec(success, error, "neura", "init", [{appUid: appUid, appSecret :appSecret}]);
+    init : function(appUid, appSecret, success, error, authorized) {
+        exec(success, error, authorized, "neura", "init", [{appUid: appUid, appSecret :appSecret}]);
     },
     authenticate : function(permissions, phone, success, error) {
         exec(success, error, "neura", "authenticate", [{permissions: permissions, phone: phone}]);

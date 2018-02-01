@@ -51,13 +51,16 @@ onDeviceReady: function() {
         var failure = function(errorCode) {
             output('Neura authenticate failed [' + errorCode + ']');
         }
+        var authorized = function(result) {
+
+        }
 
         // TODO: Update the permissions list according to the permissions your app requested on Neura devsite at this link
         // (replace APP_UID with your app UID):
         // https://dev.theneura.com/console/edit/APP_UID
         // Go to "Permissions", scroll all the way down and paste the list of permissions
 
-        neura.authenticate(["userLeftWork", "userLeftHome", "userPhoneNumber", "userDetails", "userSituation"],"", success, failure);
+        neura.authenticate(["userLeftWork", "userLeftHome", "userPhoneNumber", "userDetails", "userSituation"],"", success, failure, authorized);
     }
 
     var anonymousAuthenticate = function(deviceToken){
